@@ -1,10 +1,10 @@
 //FormSubmit
 const express = require("express");
-const { FormSubmit } = require("./user.controller");
+const { FormSubmit, loginUser } = require("./user.controller");
 
 const router = express.Router();
 
 //Post ------------------------------------------------>>
-router.route("/register").post(FormSubmit);
+router.route("/register").post(loginUser);
 
 module.exports = router;
