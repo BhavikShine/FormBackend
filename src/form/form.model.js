@@ -62,6 +62,10 @@ const formSchema = new mongoose.Schema({
     enum: ["Male", "Female", "Others"],
     required: true,
   },
+  userId:{
+    type: String,
+    required: true
+  }
 });
 
 module.exports = mongoose.model("Form", formSchema);
