@@ -33,6 +33,16 @@ const formSchema = new mongoose.Schema({
       message: "Mobile Number should be 10 digits",
     },
   },
+  alternateMobileNumber: {
+    type: String,
+    unique: true,
+    validate: {
+      validator: function (value) {
+        return /^\d{10}$/.test(value);
+      },
+      message: "Mobile Number should be 10 digits",
+    },
+  },
   ward: {
     type: String,
     required: true,
@@ -53,6 +63,10 @@ const formSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  pincode: {
+    type: String,
+    required: true,
+  },
   dob: {
     type: Date,
     required: true,
@@ -62,10 +76,18 @@ const formSchema = new mongoose.Schema({
     enum: ["Male", "Female", "Others"],
     required: true,
   },
-  userId:{
+  userId: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
+  latitude: {
+    type: String,
+    required: true,
+  },
+  longitude: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("Form", formSchema);

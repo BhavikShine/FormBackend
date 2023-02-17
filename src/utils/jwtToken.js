@@ -2,11 +2,12 @@ const cookie = require("cookie");
 const jwt = require("jsonwebtoken");
 
 const sendToken = (user, statusCode, res) => {
-  console.log("user", user)
-  const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { // Token in which user details like Id is stored.
-    expiresIn: process.env.JWT_EXPIRE
+  console.log("user", user);
+  const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+    // Token in which user details like Id is stored.
+    expiresIn: process.env.JWT_EXPIRE,
   });
-  const serialized = cookie.serialize("token", token, {
+  const serialized = cookie.serialize("tokenShine2023", token, {
     httpOnly: false,
     // secure: process.env.MODE_ENV !== "development",
     maxAge: 60 * 60 * 24 * 1, // 1 day
@@ -30,7 +31,7 @@ const sendToken = (user, statusCode, res) => {
 
   res
     .status(statusCode)
-    .cookie("token", token, {
+    .cookie("tokenShine2023", token, {
       expires: new Date(Date.now() + 70000000),
     })
     .json({

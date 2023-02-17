@@ -47,3 +47,15 @@ exports.loginUser = catchAsyncError(async (req, res, next) => {
   }
   sendToken(user, 200, res);
 });
+
+exports.logout = catchAsyncError(async (req, res) => {
+  res.cookie("tokenShine2023", null, {
+    expires: new Date(Date.now()), // Expires token immediately
+    httpOnly: true,
+  });
+
+  res.status(200).json({
+    success: true,
+    message: "logged out successfully",
+  });
+});

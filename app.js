@@ -31,3 +31,4 @@ app.listen(PORT, async () => {
   await db();
   console.log(`Server running on port ${PORT}`);
 });
+
