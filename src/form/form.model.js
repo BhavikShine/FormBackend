@@ -30,18 +30,12 @@ const formSchema = new mongoose.Schema({
       validator: function (value) {
         return /^\d{10}$/.test(value);
       },
-      message: "Mobile Number should be 10 digits",
+      message: "Alternate Mobile Number should be 10 digits",
     },
   },
   alternateMobileNumber: {
     type: String,
     unique: true,
-    validate: {
-      validator: function (value) {
-        return /^\d{10}$/.test(value);
-      },
-      message: "Mobile Number should be 10 digits",
-    },
   },
   ward: {
     type: String,
