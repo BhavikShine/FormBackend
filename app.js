@@ -14,6 +14,7 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use('*/uploads',express.static("uploads/"));
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
@@ -27,7 +28,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use("/api/v1", [formRoutes, userRoutes]);
 
-app.use("/api/v1/static", express.static(`${__dirname}/uploads`));
+// app.use("/api/v1/static", express.static(`${__dirname}/uploads`));
 
 app.listen(PORT, async () => {
   await db();
