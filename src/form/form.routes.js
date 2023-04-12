@@ -8,8 +8,8 @@ const storage = multer.diskStorage({
     cb(null, "uploads/");
   },
   filename: async function (req, file, cb) {
-    const extension = await file.originalname.split(".").slice(-1).pop();
-    const finalFilename = await `${Date.now()}.${extension}`;
+    // const extension = await file.originalname.split(".").slice(-1).pop();
+    const finalFilename = await `${file.originalname}`;
     cb(null, finalFilename);
   },
 });

@@ -5,13 +5,15 @@ const formRoutes = require("./src/form/form.routes");
 const userRoutes = require("./src/user/user.routes");
 const { db } = require("./config/db");
 const dotenv = require("dotenv");
+const bodyParser = require("body-parser");
 
 dotenv.config();
 
 app.use(cors());
 
 app.use(express.json());
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
@@ -31,4 +33,3 @@ app.listen(PORT, async () => {
   await db();
   console.log(`Server running on port ${PORT}`);
 });
-

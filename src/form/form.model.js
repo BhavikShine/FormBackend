@@ -70,10 +70,10 @@ const formSchema = new mongoose.Schema({
     enum: ["Male", "Female", "Others"],
     required: true,
   },
-  userId: {
-    type: String,
-    required: true,
-  },
+  // userId: {
+  //   type: String,
+  //   required: true,
+  // },
   latitude: {
     type: String,
     required: true,
